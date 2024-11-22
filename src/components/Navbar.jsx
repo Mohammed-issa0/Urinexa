@@ -1,6 +1,7 @@
 import React from "react";
 import { ShoppingCart } from "lucide-react";
 import CTAButton from "./CTAButton";
+import logo from "../../public/images/mainLogo.png";
 export default function Navbar() {
   return (
     <nav
@@ -14,7 +15,7 @@ export default function Navbar() {
             className="flex items-center space-x-2"
           >
             <span className="text-3xl font-bold text-[#137131]">Urinexa</span>
-            <img src="../../public/images/mainLogo.png" className="w-9" />
+            <img src={logo} className="w-9" />
           </a>
           <div className="hidden md:flex items-center flex-row-reverse gap-2">
             <a

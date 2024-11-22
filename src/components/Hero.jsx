@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import CTAButton from "./CTAButton";
-
+import img1 from "../../public/images/دائرة.png";
+import img2 from "../../public/images/رجل.png";
 export default function Hero() {
   const listAnimation = {
     hidden: { opacity: 0, x: -200 },
@@ -70,13 +71,13 @@ export default function Hero() {
           className="relative"
         >
           <motion.img
-            src="../../public/images/دائرة.png"
+            src={img1}
             alt="Urinexa Product"
             className="mx-auto rounded-lg w-[300px] lg:w-[500px] max-w-md"
             variants={listAnimation}
           />
           <motion.img
-            src="../../public/images/رجل.png"
+            src={img2}
             alt="Urinexa Product"
             className="mx-auto rounded-lg w-[300px] lg:w-[500px] max-w-md absolute bottom-[-50px]  lg:bottom-[-70px]"
             variants={listAnimation}
