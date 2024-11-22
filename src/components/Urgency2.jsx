@@ -1,7 +1,7 @@
 import Counter from "./Counter";
 import { AlertTriangle } from "lucide-react";
 import CTAButton from "./CTAButton";
-export default function Urgency2({}) {
+export default function Urgency2({ isModalOpen, setIsModalOpen }) {
   return (
     <div className="bg-amber-50 py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
@@ -13,7 +13,7 @@ export default function Urgency2({}) {
           فقدان المنتج. لذا إضمن حصولك على عبوتك الآن.
         </p>
 
-        <CTAButton />
+        <CTAButton isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       </div>
     </div>
   );

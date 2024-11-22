@@ -2,7 +2,7 @@ import React from "react";
 import { CheckCircle } from "lucide-react";
 import CTAButton from "./CTAButton";
 import { motion } from "framer-motion";
-export default function Problems() {
+export default function Problems({ isModalOpen, setIsModalOpen }) {
   const listAnimation = {
     hidden: { opacity: 0, scale: 0.5 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
@@ -84,7 +84,10 @@ export default function Problems() {
         </motion.div>
 
         <div className="mt-12 flex justify-center">
-          <CTAButton />
+          <CTAButton
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+          />
         </div>
       </div>
     </div>

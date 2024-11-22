@@ -2,7 +2,7 @@ import React from "react";
 import { UserCircle2 } from "lucide-react";
 import CTAButton from "./CTAButton";
 import { motion } from "framer-motion";
-export default function Story() {
+export default function Story({ isModalOpen, setIsModalOpen }) {
   const listAnimation = {
     hidden: { opacity: 0, scale: 0.5 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
@@ -62,7 +62,10 @@ export default function Story() {
             variants={listAnimation}
             className="mt-8 flex justify-center"
           >
-            <CTAButton />
+            <CTAButton
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+            />
           </motion.div>
         </motion.div>
       </div>

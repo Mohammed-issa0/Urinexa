@@ -2,7 +2,7 @@ import React from "react";
 import { CheckCircle2, Clock, Heart, Shield, Zap } from "lucide-react";
 import CTAButton from "./CTAButton";
 import { motion } from "framer-motion";
-export default function Benefits() {
+export default function Benefits({ isModalOpen, setIsModalOpen }) {
   const listAnimation = {
     hidden: { opacity: 0, scale: 0.5, rotate: "25deg" },
     visible: {
@@ -80,7 +80,10 @@ export default function Benefits() {
           variants={listAnimation}
           className="mt-8 flex justify-center"
         >
-          <CTAButton />
+          <CTAButton
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+          />
         </motion.div>
       </motion.div>
     </div>

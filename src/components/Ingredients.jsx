@@ -2,7 +2,7 @@ import React from "react";
 import { Leaf, Shield, Award } from "lucide-react";
 import CTAButton from "./CTAButton";
 import { motion } from "framer-motion";
-export default function Ingredients() {
+export default function Ingredients({ isModalOpen, setIsModalOpen }) {
   const listAnimation = {
     hidden: { opacity: 0, y: 100 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
@@ -74,7 +74,10 @@ export default function Ingredients() {
         </motion.div>
 
         <motion.div className="mt-8 flex justify-center">
-          <CTAButton />
+          <CTAButton
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+          />
         </motion.div>
       </motion.div>
     </div>

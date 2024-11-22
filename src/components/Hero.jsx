@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import CTAButton from "./CTAButton";
 import img1 from "../../public/images/دائرة.png";
 import img2 from "../../public/images/رجل.png";
-export default function Hero() {
+export default function Hero({ isModalOpen, setIsModalOpen }) {
   const listAnimation = {
     hidden: { opacity: 0, x: -200 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
@@ -54,7 +54,10 @@ export default function Hero() {
             }}
             variants={listAnimation2}
           >
-            <CTAButton />
+            <CTAButton
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+            />
           </motion.div>
         </motion.div>
 

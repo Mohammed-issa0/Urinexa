@@ -8,6 +8,8 @@ export default function Urgency({
   handleClick,
   text,
   show,
+  isModalOpen,
+  setIsModalOpen,
 }) {
   const listAnimation = {
     hidden: { opacity: 0, scale: 0.5 },
@@ -52,7 +54,10 @@ export default function Urgency({
               ease: "easeInOut",
             }}
           >
-            <CTAButton />
+            <CTAButton
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+            />
           </motion.div>
         </motion.div>
       </motion.div>

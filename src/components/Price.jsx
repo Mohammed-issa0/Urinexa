@@ -3,7 +3,7 @@ import { Check, Timer } from "lucide-react";
 import { motion } from "framer-motion";
 import CTAButton from "./CTAButton";
 
-export default function Pricing() {
+export default function Pricing({ isModalOpen, setIsModalOpen }) {
   const benefits = [
     "خالي من أي تأثيرات جانبية",
     "موثق من وزارة الصحة",
@@ -83,7 +83,10 @@ export default function Pricing() {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <CTAButton />
+              <CTAButton
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+              />
             </motion.div>
 
             <motion.div
