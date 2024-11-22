@@ -41,7 +41,7 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="py-16 bg-white">
+    <div id="faq" className="py-16 bg-white">
       <motion.div
         initial="hidden"
         whileInView="visible"

@@ -12,17 +12,26 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">المنتج</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#features" className="hover:text-white">
+                <a
+                  href={(window.location.href = "#ben")}
+                  className="hover:text-white"
+                >
                   المميزات
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-white">
+                <a
+                  href={(window.location.href = "#price")}
+                  className="hover:text-white"
+                >
                   الأسعار
                 </a>
               </li>
               <li>
-                <a href="#reviews" className="hover:text-white">
+                <a
+                  href={(window.location.href = "#rev")}
+                  className="hover:text-white"
+                >
                   التقييمات
                 </a>
               </li>
@@ -32,7 +41,10 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">الشركة</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#about" className="hover:text-white">
+                <a
+                  href={(window.location.href = "#")}
+                  className="hover:text-white"
+                >
                   من نحن
                 </a>
               </li>
@@ -47,7 +59,10 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">المساعدة</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#faq" className="hover:text-white">
+                <a
+                  href={(window.location.href = "#faq")}
+                  className="hover:text-white"
+                >
                   الأسئلة الشائعة
                 </a>
               </li>

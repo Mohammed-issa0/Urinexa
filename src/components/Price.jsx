@@ -37,6 +37,7 @@ export default function Pricing() {
 
   return (
     <motion.div
+      id="price"
       initial="hidden"
       whileInView="visible"
       variants={containerVariants}
