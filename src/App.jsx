@@ -1,66 +1,48 @@
-import { useState, useEffect } from "react";
-import TodoInput from "./components/TodoInput";
-import TodoList from "./components/TodoList";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Urgency from "./components/Urgency";
+import Problems from "./components/Problems";
+import Story from "./components/Story";
+import Benefits from "./components/Benefits";
+import Urgency2 from "./components/Urgency2";
+import Ingredients from "./components/Ingredients";
+import Testimonials from "./components/Testimonials";
+import Price from "./components/Price";
+import SimpleSlider from "./components/SimpleSlider";
+import { useState } from "react";
+import FAQ from "./components/FAQ";
+import Footer from "./components/Footer";
 
-function App() {
-  // for saving the main list
-  const [todos, setTodos] = useState([]);
-
-  //for saving the value that coming from the input
-  const [todoValue, setTodoValue] = useState("");
-
-  function persistData(newList) {
-    localStorage.setItem("todos", JSON.stringify({ todos: newList }));
-  }
-
-  function handleAddTodos(newTodo) {
-    const newTodoList = [...todos, newTodo];
-    persistData(newTodoList);
-    setTodos(newTodoList);
-  }
-
-  function handleDeleteTodo(index) {
-    const newTodoList = todos.filter((todo, todoIndex) => {
-      return todoIndex !== index;
-    });
-    persistData(newTodoList);
-    setTodos(newTodoList);
-  }
-
-  function handleEditTodo(index) {
-    const valueToBeEdited = todos[index];
-    setTodoValue(valueToBeEdited);
-    handleDeleteTodo(index);
-  }
-
-  useEffect(() => {
-    if (!localStorage) {
+export default function App() {
+  const [counter, setCounter] = useState(4);
+  function handleClick() {
+    if (counter === 0) {
+      setCounter(0);
       return;
     }
-
-    let localTodos = localStorage.getItem("todos");
-    if (!localTodos) {
-      return;
-    }
-
-    localTodos = JSON.parse(localTodos).todos;
-    setTodos(localTodos);
-  }, []);
-
+    setCounter(counter - 1);
+  }
   return (
-    <>
-      <TodoInput
-        todoValue={todoValue}
-        setTodoValue={setTodoValue}
-        handleAddTodos={handleAddTodos}
+    <div className="min-h-screen bg-gray-50 text-right" dir="rtl">
+      <Navbar />
+      <Hero />
+      <Urgency
+        text={
+          "يُسمح لنا إستيراد 150 قطعة فقط من منتج Urinexa كل شهر. وهذا لقلة توفر المنتج بسبب ندرة الأعشاب المستخدمة فيه مع الطلب الكبير عليها. لذلك لاتضيع هذا المنتج عليك واحجز عبوتك قبل نفاذ الكمية."
+        }
+        counter={counter}
+        setCounter={setCounter}
+        handleClick={handleClick}
       />
-      <TodoList
-        handleEditTodo={handleEditTodo}
-        handleDeleteTodo={handleDeleteTodo}
-        todos={todos}
-      />
-    </>
+      <Problems />
+      <Story />
+      <Benefits />
+      <Urgency2 />
+      <Ingredients />
+      <Testimonials />
+      <Price />
+      <FAQ />
+      <Footer />
+    </div>
   );
 }
-
-export default App;

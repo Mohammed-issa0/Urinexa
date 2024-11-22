@@ -2,40 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: "Inter", sans-serif;
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+::selection {
+  background: #137131;
+  color: white;
+  font-wight: bold;
+}
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: #202124;
-}
-
-h1,
-h2,
-h3,
-input,
-button {
-  font-family: "Press Start 2P", system-ui;
-}
-
-#root {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 14px;
-  background: #eff6ff;
-  gap: 14px;
+  background-color: #f3f4f6;
 }
-p {
-  font-size: 0.9em;
-}
-@media (min-width: 640px) {
-  header button,
-  header input {
-    font-size: 1.2em;
-  }
 
-  p {
-    font-size: 1em;
-  }
+.slick-slide {
+  padding: 0 10px; /* لإضافة مسافة أفقية بين العناصر */
+}
+
+.slick-track {
+  display: flex;
+  gap: 20px; /* خاصية gap بين العناصر */
+}
+.background {
+  background: linear-gradient(45deg, #4caf5082, #63ec6870),
+    url(/public/images/IMG-20241121-WA0000.jpg);
+  background-size: cover;
 }
