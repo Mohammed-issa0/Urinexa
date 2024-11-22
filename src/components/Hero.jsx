@@ -8,8 +8,8 @@ export default function Hero() {
     visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
   };
   const listAnimation2 = {
-    hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
   };
   return (
     <div className="bg-gradient-to-r from-[#6cd892] to-[#46b99a] text-white py-20">
