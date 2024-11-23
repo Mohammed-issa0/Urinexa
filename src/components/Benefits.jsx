@@ -75,16 +75,6 @@ export default function Benefits({ isModalOpen, setIsModalOpen }) {
             </motion.div>
           ))}
         </motion.div>
-
-        <motion.div
-          variants={listAnimation}
-          className="mt-8 flex justify-center"
-        >
-          <CTAButton
-            isModalOpen={isModalOpen}
-            setIsModalOpen={setIsModalOpen}
-          />
-        </motion.div>
       </motion.div>
     </div>
   );

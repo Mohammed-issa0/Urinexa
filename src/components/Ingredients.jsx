@@ -8,7 +8,7 @@ export default function Ingredients({ isModalOpen, setIsModalOpen }) {
     visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
   };
   return (
-    <div id="ing" className="py-16 bg-gray-50 background">
+    <div id="ing" className="py-16 bg-gray-50 ">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -22,7 +22,7 @@ export default function Ingredients({ isModalOpen, setIsModalOpen }) {
       >
         <motion.h2
           variants={listAnimation}
-          className="text-3xl font-bold text-center text-white mb-12"
+          className="text-3xl font-bold text-center  mb-12"
         >
           المكونات الطبيعية الأساسية
         </motion.h2>

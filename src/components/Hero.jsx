@@ -30,8 +30,8 @@ export default function Hero({ isModalOpen, setIsModalOpen }) {
             className="text-4xl lg:text-5xl font-bold mb-6"
             variants={listAnimation2}
           >
-            هل ترغب باستعادة شبابك و
-            <span className="text-[#137131]">قوتك الجنسية</span> لتسترجع أيام
+            هل ترغب باستعادة شبابك{" "}
+            <span className="text-[#137131]">وقوتك الجنسية</span> لتسترجع أيام
             العشق والرغبة مع شريكتك؟
           </motion.h1>
           <motion.p
@@ -54,10 +54,21 @@ export default function Hero({ isModalOpen, setIsModalOpen }) {
             }}
             variants={listAnimation2}
           >
-            <CTAButton
-              isModalOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
-            />
+            <motion.div
+              initial={{ scale: 1 }}
+              animate={{ scale: 1.1 }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: 1,
+                ease: "easeInOut",
+              }}
+            >
+              <CTAButton
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+              />
+            </motion.div>
           </motion.div>
         </motion.div>
 

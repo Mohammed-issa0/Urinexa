@@ -3,8 +3,10 @@ import { createRoot } from "react-dom/client";
 // import "./index.css";
 import App from "./App.jsx";
 import "./style.css";
+
+import AppRoutes from "./AppRoutes.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <AppRoutes />
   </StrictMode>
 );

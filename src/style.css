@@ -30,7 +30,8 @@ body {
   gap: 20px; /* خاصية gap بين العناصر */
 }
 .background {
-  background: linear-gradient(45deg, #4caf5082, #63ec6870),
+  background: linear-gradient(357deg, #4caf50, #63ec68c7),
     url(/public/images/IMG-20241121-WA0000.jpg);
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
 }

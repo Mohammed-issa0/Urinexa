@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CTAButton from "./CTAButton";
+import logo from "../../public/images/mainLogo.png";
 
 export default function Navbar({ isModalOpen, setIsModalOpen }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,15 +17,11 @@ export default function Navbar({ isModalOpen, setIsModalOpen }) {
           {/* Logo */}
           <a href="#" className="flex items-center space-x-2">
             <span className="text-3xl font-bold text-[#137131]">Urinexa</span>
-            <img
-              src="../../public/images/mainLogo.png"
-              className="w-9"
-              alt="Logo"
-            />
+            <img src={logo} className="w-9" alt="Logo" />
           </a>
 
           {/* Menu button for mobile */}
-          <button onClick={toggleMenu} className="md:hidden focus:outline-none">
+          {/* <button onClick={toggleMenu} className="md:hidden focus:outline-none">
             <div className="relative w-6 h-6">
               <span
                 className={`absolute top-0 left-0 h-1 w-full bg-[#137131] transform transition-transform duration-300 ease-in-out ${
@@ -42,7 +39,7 @@ export default function Navbar({ isModalOpen, setIsModalOpen }) {
                 }`}
               ></span>
             </div>
-          </button>
+          </button> */}
 
           {/* Menu items for desktop */}
           <div className="hidden md:flex flex-row-reverse items-center gap-2">
@@ -73,7 +70,7 @@ export default function Navbar({ isModalOpen, setIsModalOpen }) {
       </div>
 
       {/* Sliding menu */}
-      <div
+      {/* <div
         className={`fixed top-0 right-0 h-screen w-1/2 bg-green-700 bg-opacity-60 backdrop-blur-lg shadow-lg transform z-50 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out`}
@@ -108,7 +105,7 @@ export default function Navbar({ isModalOpen, setIsModalOpen }) {
           </a>
           <CTAButton />
         </div>
-      </div>
+      </div> */}
 
       {/* Overlay */}
       {isOpen && (

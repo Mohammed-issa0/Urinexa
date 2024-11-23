@@ -1,5 +1,5 @@
 import Counter from "./Counter";
-import { AlertTriangle } from "lucide-react";
+import { CircleAlert } from "lucide-react";
 import CTAButton from "./CTAButton";
 import { motion } from "framer-motion";
 export default function Urgency({
@@ -15,8 +15,9 @@ export default function Urgency({
     hidden: { opacity: 0, scale: 0.5 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
   };
+
   return (
-    <div className="bg-amber-50 py-16">
+    <div className="bg-amber-100 py-16">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -32,7 +33,7 @@ export default function Urgency({
           variants={listAnimation}
           className="flex items-center justify-center mb-6"
         >
-          <AlertTriangle className="h-14 w-14 text-red-600 mr-2" />
+          <CircleAlert className="h-14 w-14 text-red-600 mr-2" />
         </motion.div>
         <motion.p
           variants={listAnimation}
@@ -41,23 +42,17 @@ export default function Urgency({
           {text}
         </motion.p>
         <motion.div variants={listAnimation}>
-          <Counter remaining={counter} handleClick={handleClick} />
-        </motion.div>
-        <motion.div variants={listAnimation} className="mt-4">
           <motion.div
             initial={{ scale: 1 }}
             animate={{ scale: 1.1 }}
             transition={{
               repeat: Infinity,
               repeatType: "reverse",
-              duration: 1,
+              duration: 0.5,
               ease: "easeInOut",
             }}
           >
-            <CTAButton
-              isModalOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
-            />
+            <Counter remaining={counter} handleClick={handleClick} />
           </motion.div>
         </motion.div>
       </motion.div>

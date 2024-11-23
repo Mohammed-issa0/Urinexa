@@ -8,13 +8,21 @@ import Urgency2 from "./components/Urgency2";
 import Ingredients from "./components/Ingredients";
 import Testimonials from "./components/Testimonials";
 import Price from "./components/Price";
+import Price0 from "./components/Price0";
+import Tork from "./components/Tork";
 import SimpleSlider from "./components/SimpleSlider";
 import { useState } from "react";
 import FAQ from "./components/FAQ";
-import Footer from "./components/Footer";
+
+import { useNavigate } from "react-router-dom";
+import { db } from "./firebase";
+import { collection, addDoc } from "firebase/firestore";
+import Fourth from "./components/Fourth";
+import Msg from "./components/Msg";
+import Urgency3 from "./components/Urgency3";
 
 export default function App() {
-  const [counter, setCounter] = useState(4);
+  // const [counter, setCounter] = useState(4);
   function handleClick() {
     if (counter === 0) {
       setCounter(0);
@@ -23,50 +31,67 @@ export default function App() {
     setCounter(counter - 1);
   }
 
-  const [isModalOpen, setIsModalOpen] = useState(false); // للتحكم في النافذة المنبثقة
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     quantity: "",
     method: "",
   });
-
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSend = () => {
-    const { name, quantity, method } = formData;
+  // hadnle send
+  const handleSend = async () => {
+    const { name, quantity } = formData;
 
-    if (!name || !quantity || !method) {
-      alert("يرجى تعبئة جميع الحقول واختيار طريقة التواصل.");
+    if (!name || !quantity) {
+      alert("يرجى تعبئة جميع الحقول.");
       return;
     }
 
-    switch (method) {
-      case "whatsapp":
-        window.open(
-          `https://wa.me/00963932952575?text=الاسم: ${name}%0Aعدد العبوات: ${quantity}%0Aطريقة التواصل: واتساب`
-        );
-        break;
-      case "telegram":
-        window.open(
-          `https://t.me/Mohammed-issa0?start=الاسم:${name}_عدد-العبوات:${quantity}`
-        );
-        break;
-      case "gmail":
-        window.open(
-          `mailto:mohammed.issaopte@gmail.com?subject=طلب&body=الاسم: ${name}%0Aعدد العبوات: ${quantity}`
-        );
-        break;
-      default:
-        alert("يرجى اختيار طريقة تواصل صحيحة.");
+    try {
+      // إرسال البيانات إلى Firestore
+      await addDoc(collection(db, "orders"), {
+        name,
+        quantity,
+        timestamp: new Date(),
+      });
+
+      // التنقل إلى صفحة الشكر
+      navigate("/thank-you");
+
+      // اختيار طريقة التواصل (اختياري)
+      // switch (method) {
+      //   case "whatsapp":
+      //     window.open(
+      //       `https://wa.me/00963932952575?text=الاسم: ${name}%0Aعدد العبوات: ${quantity}%0Aطريقة التواصل: واتساب`
+      //     );
+      //     break;
+      //   case "telegram":
+      //     window.open(
+      //       `https://t.me/Mohammed-issa0?start=الاسم:${name}_عدد-العبوات:${quantity}`
+      //     );
+      //     break;
+      //   case "gmail":
+      //     window.open(
+      //       `mailto:mohammed.issaopte@gmail.com?subject=طلب&body=الاسم: ${name}%0Aعدد العبوات: ${quantity}`
+      //     );
+      //     break;
+      //   default:
+      //     alert("يرجى اختيار طريقة تواصل صحيحة.");
+      // }
+    } catch (error) {
+      console.error("حدث خطأ أثناء إرسال البيانات:", error);
+      alert("عذرًا، حدث خطأ أثناء معالجة طلبك. يرجى المحاولة مرة أخرى.");
     }
 
     setIsModalOpen(false); // غلق النافذة بعد الإرسال
   };
+
   return (
     <div className="min-h-screen bg-gray-50 text-right" dir="rtl">
       {/* Modal */}
@@ -114,7 +139,7 @@ export default function App() {
                 />
               </div>
 
-              {/* Contact Method */}
+              {/* Contact Method
               <div>
                 <label className="block text-sm font-medium text-gray-700">
                   طريقة التواصل
@@ -130,7 +155,7 @@ export default function App() {
                   <option value="telegram">تلغرام</option>
                   <option value="gmail">Gmail</option>
                 </select>
-              </div>
+              </div> */}
             </form>
 
             <div className="flex justify-end mt-6 space-x-2">
@@ -158,19 +183,22 @@ export default function App() {
         text={
           "يُسمح لنا إستيراد 150 قطعة فقط من منتج Urinexa كل شهر. وهذا لقلة توفر المنتج بسبب ندرة الأعشاب المستخدمة فيه مع الطلب الكبير عليها. لذلك لاتضيع هذا المنتج عليك واحجز عبوتك قبل نفاذ الكمية."
         }
-        counter={counter}
-        setCounter={setCounter}
         handleClick={handleClick}
       />
       <Problems isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       <Story isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       <Benefits isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       <Urgency2 isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+
       <Ingredients isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <Fourth />
       <Testimonials isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <Price0 />
+      <Tork />
       <Price isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <Msg />
       <FAQ isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-      <Footer />
+      <Urgency3 />
     </div>
   );
 }

@@ -4,16 +4,6 @@ import { motion } from "framer-motion";
 import CTAButton from "./CTAButton";
 
 export default function Pricing({ isModalOpen, setIsModalOpen }) {
-  const benefits = [
-    "خالي من أي تأثيرات جانبية",
-    "موثق من وزارة الصحة",
-    "محقق لضمان الجودة",
-    "ضمان الماركة المعتمدة",
-    "منتج طبيعي 100% خالي من أي تركيبات كيميائية",
-    "ضمان الإستبدال أو الإرجاع",
-    "مناسب لمرضى السكري والضغط وأمراض القلب",
-  ];
-
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -41,7 +31,7 @@ export default function Pricing({ isModalOpen, setIsModalOpen }) {
       initial="hidden"
       whileInView="visible"
       variants={containerVariants}
-      className="py-16 bg-gradient-to-br from-green-50 to-gray-50"
+      className="py-16 bg-gradient-to-r from-red-400 to-red-600"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -68,8 +58,11 @@ export default function Pricing({ isModalOpen, setIsModalOpen }) {
 
             <motion.div variants={itemVariants} className="relative mb-8">
               <div className="text-6xl font-bold text-gray-900 relative z-10">
-                <span>120</span>
-                <span className="text-2xl text-gray-600 ml-2">دينار</span>
+                <span className="bg-red-600 text-white px-1 rounded-md ">
+                  120 <span className="text-xl sm:text-2xl">دينار</span>
+                </span>
+
+                {/* <span className="text-2xl text-gray-600 ml-2">دينار</span> */}
               </div>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-200 font-extrabold text-8xl opacity-10">
                 فرصة
@@ -87,22 +80,6 @@ export default function Pricing({ isModalOpen, setIsModalOpen }) {
                 isModalOpen={isModalOpen}
                 setIsModalOpen={setIsModalOpen}
               />
-            </motion.div>
-
-            <motion.div
-              variants={containerVariants}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-3 mt-10 gap-4 text-right items-center justify-center"
-            >
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="flex items-center gap-3 bg-gray-50 rounded-lg p-3 shadow-sm hover:shadow-lg hover:rotate-2 cursor-pointer"
-                >
-                  <Check className="h-7 w-7 font-bold text-white bg-[#137131] rounded-full flex-shrink-0" />
-                  <span className="text-gray-700">{benefit}</span>
-                </motion.div>
-              ))}
             </motion.div>
           </div>
         </motion.div>

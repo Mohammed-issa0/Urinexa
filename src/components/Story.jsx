@@ -8,7 +8,7 @@ export default function Story({ isModalOpen, setIsModalOpen }) {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
   };
   return (
-    <div className="py-16 bg-gray-50">
+    <div className="py-16 bg-amber-100">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -51,21 +51,11 @@ export default function Story({ isModalOpen, setIsModalOpen }) {
             </motion.p>
             <motion.p
               variants={listAnimation}
-              className="font-semibold text-[#137131]"
+              className="font-semibold text-[#137131] text-xl"
             >
               خلال أيام قليلة، شعر عمر بفرق كبير، وعادت الابتسامة إلى وجهه ورضا
               شريكته أصبح أكبر من أي وقت مضى.
             </motion.p>
-          </motion.div>
-
-          <motion.div
-            variants={listAnimation}
-            className="mt-8 flex justify-center"
-          >
-            <CTAButton
-              isModalOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
-            />
           </motion.div>
         </motion.div>
       </div>
