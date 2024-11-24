@@ -32,9 +32,12 @@ export default function App() {
   }
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false); // حالة التحميل
   const [formData, setFormData] = useState({
     name: "",
     quantity: "",
+    phone: "",
+    processed: false,
     method: "",
   });
   const navigate = useNavigate();
@@ -52,7 +55,7 @@ export default function App() {
       alert("يرجى تعبئة جميع الحقول.");
       return;
     }
-
+    setLoading(true);
     try {
       // إرسال البيانات إلى Firestore
       await addDoc(collection(db, "orders"), {
@@ -64,30 +67,12 @@ export default function App() {
 
       // التنقل إلى صفحة الشكر
       navigate("/thank-you");
-
-      // اختيار طريقة التواصل (اختياري)
-      // switch (method) {
-      //   case "whatsapp":
-      //     window.open(
-      //       `https://wa.me/00963932952575?text=الاسم: ${name}%0Aعدد العبوات: ${quantity}%0Aطريقة التواصل: واتساب`
-      //     );
-      //     break;
-      //   case "telegram":
-      //     window.open(
-      //       `https://t.me/Mohammed-issa0?start=الاسم:${name}_عدد-العبوات:${quantity}`
-      //     );
-      //     break;
-      //   case "gmail":
-      //     window.open(
-      //       `mailto:mohammed.issaopte@gmail.com?subject=طلب&body=الاسم: ${name}%0Aعدد العبوات: ${quantity}`
-      //     );
-      //     break;
-      //   default:
-      //     alert("يرجى اختيار طريقة تواصل صحيحة.");
-      // }
     } catch (error) {
       console.error("حدث خطأ أثناء إرسال البيانات:", error);
       alert("عذرًا، حدث خطأ أثناء معالجة طلبك. يرجى المحاولة مرة أخرى.");
+    } finally {
+      setLoading(false); // انتهاء التحميل
+      setIsModalOpen(false); // غلق النافذة بعد الإرسال
     }
 
     setIsModalOpen(false); // غلق النافذة بعد الإرسال
@@ -189,10 +174,15 @@ export default function App() {
                 onClick={handleSend}
                 className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
               >
-                إرسال
+                {loading ? "جارٍ الإرسال..." : "إرسال"}{" "}
               </button>
             </div>
           </div>
+          {loading && (
+            <div className="spinner-container">
+              <div className="spinner"></div>
+            </div>
+          )}
         </div>
       )}
       <Navbar isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
