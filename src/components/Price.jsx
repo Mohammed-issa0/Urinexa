@@ -76,10 +76,21 @@ export default function Pricing({ isModalOpen, setIsModalOpen }) {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <CTAButton
-                isModalOpen={isModalOpen}
-                setIsModalOpen={setIsModalOpen}
-              />
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: 1.1 }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  duration: 1,
+                  ease: "easeInOut",
+                }}
+              >
+                <CTAButton
+                  isModalOpen={isModalOpen}
+                  setIsModalOpen={setIsModalOpen}
+                />
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>

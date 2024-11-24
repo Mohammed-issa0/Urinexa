@@ -46,9 +46,9 @@ export default function App() {
 
   // hadnle send
   const handleSend = async () => {
-    const { name, quantity } = formData;
+    const { name, phone, quantity } = formData;
 
-    if (!name || !quantity) {
+    if (!name || !quantity || !phone) {
       alert("يرجى تعبئة جميع الحقول.");
       return;
     }
@@ -57,6 +57,7 @@ export default function App() {
       // إرسال البيانات إلى Firestore
       await addDoc(collection(db, "orders"), {
         name,
+        phone,
         quantity,
         timestamp: new Date(),
       });
@@ -107,7 +108,7 @@ export default function App() {
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  الاسم
+                  الاسم الكامل
                 </label>
                 <input
                   type="text"
@@ -117,6 +118,25 @@ export default function App() {
                   onChange={handleInputChange}
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
                   placeholder="أدخل اسمك"
+                />
+              </div>
+
+              {/* phone */}
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  رقم الهاتف
+                </label>
+                <input
+                  type="number"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+                  placeholder="أدخل رقم هاتفك"
                 />
               </div>
 
@@ -198,7 +218,7 @@ export default function App() {
       <Price isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       <Msg />
       <FAQ isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-      <Urgency3 />
+      <Urgency3 isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </div>
   );
 }
