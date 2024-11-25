@@ -12,7 +12,6 @@ export default function Fourth() {
         <div className="flex flex-col md:flex-row items-center gap-3 ">
           <img src={logo} className="h-40 md:h-48" />
           <p className="text2xl sm:text-3xl text-center md:text-right text-gray-900 font-semibold mb-4">
-            المنتج بدون أي قيمة مضافة{" "}
             <span className="text-green-600">URIXENA</span> واحد من أفضل 20
             معالج ومقوي جنسي طبيعي بحسب منظمة الصحة العالمية وشهادات المنتج
             المعتمدة من وزارة الصحة في تونس.

@@ -58,7 +58,7 @@ export default function Pricing({ isModalOpen, setIsModalOpen }) {
 
             <motion.div variants={itemVariants} className="relative mb-8">
               <div className="text-6xl font-bold text-gray-900 relative z-10">
-                <span className="bg-red-600 text-white px-1 rounded-md ">
+                <span className="bg-red-600 text-white px-1 py-0 rounded-md ">
                   120 <span className="text-xl sm:text-2xl">دينار</span>
                 </span>
 
@@ -67,7 +67,7 @@ export default function Pricing({ isModalOpen, setIsModalOpen }) {
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-200 font-extrabold text-8xl opacity-10">
                 فرصة
               </div>
-              <div className="text-xl text-red-600 line-through mt-2">
+              <div className="text-xl text-red-600 line-through mt-[25px]">
                 240 دينار
               </div>
               <p className="text-sm text-gray-500 mt-2">
