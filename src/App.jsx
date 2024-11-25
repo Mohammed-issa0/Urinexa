@@ -49,9 +49,9 @@ export default function App() {
 
   // hadnle send
   const handleSend = async () => {
-    const { name, phone, quantity } = formData;
+    const { name, phone } = formData;
 
-    if (!name || !quantity || !phone) {
+    if (!name || !phone) {
       alert("يرجى تعبئة جميع الحقول.");
       return;
     }
@@ -126,7 +126,7 @@ export default function App() {
               </div>
 
               {/* Quantity */}
-              <div>
+              {/* <div>
                 <label
                   htmlFor="quantity"
                   className="block text-sm font-medium text-gray-700"
@@ -142,7 +142,7 @@ export default function App() {
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
                   placeholder="أدخل العدد"
                 />
-              </div>
+              </div> */}
 
               {/* Contact Method
               <div>
