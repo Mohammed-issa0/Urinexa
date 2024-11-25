@@ -35,7 +35,6 @@ export default function App() {
   const [loading, setLoading] = useState(false); // حالة التحميل
   const [formData, setFormData] = useState({
     name: "",
-    quantity: "",
     phone: "",
     processed: false,
     method: "",
@@ -61,7 +60,7 @@ export default function App() {
       await addDoc(collection(db, "orders"), {
         name,
         phone,
-        quantity,
+
         timestamp: new Date(),
       });
 
