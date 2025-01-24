@@ -7,7 +7,7 @@ import "./style.css";
 import AppRoutes from "./AppRoutes.jsx";
 
 // إعداد Facebook Pixel
-const pixelId = '986215916704511; // ضع هنا رقم الـ Pixel ID الخاص بك
+const pixelId = '986215916704511'; // ضع هنا رقم الـ Pixel ID الخاص بك
 ReactPixel.init(pixelId); // تهيئة Facebook Pixel
 ReactPixel.pageView(); // تتبع أول زيارة للصفحة
 
