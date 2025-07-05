@@ -17,6 +17,12 @@ export default function ThankYou() {
     });
   }, []);
 
+
+// إعداد Facebook Pixel
+const pixelId = '1285391163160161'; // ضع هنا رقم الـ Pixel ID الخاص بك
+ReactPixel.init(pixelId); // تهيئة Facebook Pixel
+ReactPixel.pageView(); // تتبع أول زيارة للصفحة
+
   return (
     <div className="h-screen flex items-center justify-center">
       <div className="flex flex-col items-center justify-center mb-6">
